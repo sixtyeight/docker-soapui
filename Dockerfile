@@ -1,7 +1,7 @@
 FROM centos:7
 FROM python:2.7
 FROM java:openjdk-7-jdk
-MAINTAINER Daniel Davison <sircapsalot@gmail.com>
+# MAINTAINER Daniel Davison <sircapsalot@gmail.com>
 
 #  Version
 ENV   SOAPUI_VERSION  5.3.0
@@ -26,4 +26,8 @@ WORKDIR /opt/bin
 ENV PATH ${PATH}:/opt/SoapUI/bin
 
 EXPOSE 3000
-CMD ["/opt/bin/entry_point.sh"]
+EXPOSE 9999
+
+VOLUME /projects
+
+CMD ["soapui.sh"]
